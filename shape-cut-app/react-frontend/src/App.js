@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Button, Container, Typography, Box, Card, CardContent, CircularProgress } from '@mui/material';
+import { Button, Container, Typography, Box, Card, CardContent, CircularProgress, Grid } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import './App.css';
@@ -96,12 +96,24 @@ function App() {
           {loading && <CircularProgress sx={{ my: 2 }} />}
 
           {recommendations && (
-            <Card sx={{ my: 2 }}>
-              <CardContent>
-                <Typography variant="h5">Hairstyle Recommendations:</Typography>
-                <Typography variant="body1">{recommendations}</Typography>
-              </CardContent>
-            </Card>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <Card>
+                  <CardContent>
+                    <Typography variant="h5">Hairstyle Recommendations:</Typography>
+                    <Typography variant="body1">{recommendations}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <Card>
+                  <CardContent>
+                    <Typography variant="h5">Dress Recommendations:</Typography>
+                    <Typography variant="body1">{recommendations}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
           )}
         </Box>
         <footer style={{ textAlign: 'center', padding: '20px' }}>

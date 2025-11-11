@@ -20,7 +20,7 @@ def upload():
     image_file = request.files['image']
     image = Image.open(image_file.stream)
 
-    response = model.generate_content(["Analyze the face in this image and suggest a hairstyle.", image])
+    response = model.generate_content(["Analyze the face in this image and suggest a hairstyle and a dress.", image])
 
     return jsonify({'recommendations': response.text})
 
